@@ -19,3 +19,7 @@ Retrofit+RxJava网络异步集成
             }
         }
     }
+
+
+Retrofit官网：http://square.github.io/retrofit/
+Retrofit项目地址：https://github.com/square/retrofit
