@@ -7,7 +7,25 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="连接网络"
-        android:onClick="onClick"/>
+        android:text="get"
+        android:onClick="onGet"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post"
+        android:onClick="onPost"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="put"
+        android:onClick="onPut"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="delete"
+        android:onClick="onDelete"/>
 
 </LinearLayout>

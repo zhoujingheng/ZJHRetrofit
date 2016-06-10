@@ -26,9 +26,21 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void onClick(View view){
+    public void onGet(View view){
         ContributorRequest request = new ContributorRequest(this);
         request.asyncExecute(new ContributorRequestCallback(this));
+    }
+
+    public void onPost(View view){
+
+    }
+
+    public void onPut(View view){
+
+    }
+
+    public void onDelete(View view){
+
     }
 
     class ContributorRequestCallback extends HttpCallback<List<Contributor>>{
