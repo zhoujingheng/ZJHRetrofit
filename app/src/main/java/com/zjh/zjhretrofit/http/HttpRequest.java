@@ -31,7 +31,7 @@ public abstract class HttpRequest<T> {
         try {
             Observable<T> observable = initObservable();
             if (observable == null) {
-                return;
+                throw new NullPointerException("Observable can't not be null");
             }
 
             //执行请求
