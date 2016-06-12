@@ -4,7 +4,6 @@ import android.content.Context;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import rx.Subscriber;
 
 /**
  * Created by zjh on 2016/6/10.
@@ -47,7 +46,7 @@ public abstract class HttpRequest<T> {
     }
 
     /**
-     * 同步调用网络
+     * 同步调用网络,不能再UI线程之间使用
      */
     public void syncExecute(){
         try {
@@ -70,7 +69,6 @@ public abstract class HttpRequest<T> {
 
         @Override
         public void onResponse(Call<T> call, Response<T> response) {
-            System.out.println("response");
             T t = response.body();
             callback.onSuccess(t);
         }
