@@ -1,6 +1,20 @@
 # ZJHRetrofit
-Retrofit+RxJava网络异步集成
+Retrofit封装
 
+PureRetrofit模块：只使用Retrofit构建
+使用方法:
+
+    ContributorRequest request = new ContributorRequest(this);
+    request.asyncExecute(new HttpCallback<List<Contributor>>(this) {
+        @Override
+        public void onSuccess(List<Contributor> result) {
+            for (Contributor contributor : result) {
+                System.out.println(contributor.login + " (" + contributor.contributions + ")");
+            }
+        }
+    });
+
+retrofitRxJava模块：使用Retrofit+RxJava构建
 使用方法：
 
 	ContributorRequest request = new ContributorRequest(this);

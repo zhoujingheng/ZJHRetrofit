@@ -1,24 +1,24 @@
-package com.zjh.zjhretrofit.http;
+package com.zjh.pureretrofit.http;
 
-
-import com.zjh.zjhretrofit.http.result.Contributor;
+import com.zjh.pureretrofit.http.Response.Contributor;
 
 import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import rx.Observable;
 
 /**
- * Created by zjh on 2016/6/10.
+ * Created by zjh on 2016/6/12.
  *
  */
 public class GitHubService {
+
     public static final String API_URL = "https://api.github.com";
     static Retrofit retrofit;
     static GitHub github;
@@ -33,7 +33,6 @@ public class GitHubService {
             retrofit = new Retrofit.Builder()
                     .baseUrl(API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
 
             // Create an instance of our GitHub API interface.
@@ -45,7 +44,7 @@ public class GitHubService {
 
     public interface GitHub {
         @GET("/repos/{owner}/{repo}/contributors")
-        Observable<List<Contributor>> contributors(
+        Call<List<Contributor>> contributors(
                 @Path("owner") String owner,
                 @Path("repo") String repo);
     }
